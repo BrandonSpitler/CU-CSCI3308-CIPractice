@@ -1,5 +1,5 @@
 /*
- * geometry.c
+/ * geometry.c
  * Andy Sayler
  * CSCI 3308
  * Summer 2014
@@ -47,6 +47,32 @@ bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b){
     }
 
 }
+
+double coord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c){
+	if(!a){
+		DEBUG(__FILE__,__LINE__,__func__, "'a' most not be NULL");
+
+	}
+	if(!b){
+                DEBUG(__FILE__,__LINE__,__func__, "'b' most not be NULL");
+
+
+	}
+	if(!c){
+                DEBUG(__FILE__,__LINE__,__func__, "'c' most not be NULL");
+        
+
+
+	}
+	double t1=a->x*(b->y-c->y);
+	double t2=b->x*(c->y-a->y);
+	double t3=c->x*(a->y-b->y);
+	double sum=t1+t2+t3;
+	double area=sum/2;
+	return fabs(area);
+
+}
+
 
 void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b){
 
